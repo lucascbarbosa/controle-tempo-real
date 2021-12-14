@@ -37,4 +37,4 @@ x20 = 10;
 %F0 = zeros(1,n,1,N);
 
 % Ganho do observador
-obs_eig = [-10 -15];
+obs_eig = [-0.01 0.01];
