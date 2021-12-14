@@ -1,11 +1,16 @@
+clear all
+
 global N Phi Gamma Q1 Q2 Q0 Q12 h
 %Passo de amostragem
-h = 1;
+h = 0.1;
+h_plant = (1e-4)*h; %Integration step
 
 %Horizonte de otimização
 N = 20;
 
 %Discrete model of double integrator
+A = [0 1;0 0];
+B = [0;1];
 Phi = [1 h; 0 1];    
 Gamma = [h^2/2; h];
 C = [1 0];
@@ -25,27 +30,11 @@ Q12 = 0;
 x10 = 0;
 x20 = 10;
 
-%Ganho
-[X,Flqr,~,info] = idare(Phi,Gamma,Q1,Q2,[],[]);
+%Ganho de realimentação 
 
-F0 = zeros(1,n,1,N);
+[X,Flqr,~,info] = idare(Phi,Gamma,Q1,Q2,[],[]); 
+%Flqr = place(Phi,Gamma,[-0.5 0.7])
+%F0 = zeros(1,n,1,N);
 
-%Parametros filtro de Kalman
-
-G = [h^2/2; h];
-Q = .001;
-R = .001;
-
-%Limites MPC
-
-%Valores da restrição de entrada
-UM = 100;
-Um = -100;
-%Valores da restrição de sáida
-YM = 100;
-Ym = -100;
-
-%nivel ruido de processo
-rp = 0;
-%nivel ruido de medição
-rm = 0;
+% Ganho do observador
+obs_eig = [-10 -15];
