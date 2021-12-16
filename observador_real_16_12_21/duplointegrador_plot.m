@@ -2,7 +2,7 @@ clear all
 % Plots Duplo Integrador
 
 run('duplointegrador_script.m')
-sim('duplointegrador_com_obs.slx',20)
+sim('duplointegrador_com_obs_real.slx',20)
 
 close all
 %Estados
@@ -26,6 +26,9 @@ ylabel('y')
 %Estados em discreto, controle em discreto
 figure(3)
 plot(ud,'o-')
+hold on
+plot(u_sat,'.')
+legend('u discreto','u saturado')
 title('Sinais de controle')
 xlabel('Tempo (s)')
 

@@ -22,8 +22,8 @@ n = length(Phi);
 
 %Custo
 Q1 = eye(n); % Transitório dos estados
-Q2 = 10; % Energia do controle
-Q0 = 10*eye(n); % Estado final - erro de regime
+Q2 = 1/10; % Energia do controle
+Q0 = eye(n); % Estado final - erro de regime
 Q12 = 0;    
 
 %Condições iniciais
@@ -37,4 +37,16 @@ x20 = 10;
 %F0 = zeros(1,n,1,N);
 
 % Ganho do observador
-obs_eig = [-0.1 0.1];
+obs_eig = [-0.01 0.01];
+
+% Saturação de entrada
+sat_u
+
+% Ruído de medição
+noise_gate = 1;
+
+% Perturbação do vento
+wind_gate = 1;
+wind_steptime = 0;
+wind_initialvalue = 0;
+wind_finalvalue = 1;
