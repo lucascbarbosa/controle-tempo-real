@@ -1,0 +1,30 @@
+%Configuração inicial
+clear all;
+run('ex4_custo_script.m')
+N = 4;
+F0 = zeros(1,n,1,N);
+out = sim('ex4_custo.slx',10);
+
+
+%Estados
+figure(1)
+plot(out.xd_ARE,'o-')
+hold on
+plot(out.xd_DRE,'o-')
+legend('x_{1_{ARE}}[k]','x_{2_{ARE}}[k]','x_{1_{DRE}}[k]','x_{2_{DRE}}[k]')
+title('Estados em tempo discreto')
+xlabel('k')
+ylabel('x[k]')
+hold off
+
+%Saída
+figure(2)
+plot(out.xd_ARE.Time,out.xd_ARE.Data(:,1),'o-')
+hold on
+plot(out.xd_DRE.Time,out.xd_DRE.Data(:,1),'o-')
+yline(3,'-','Threshold');
+legend('y_{ARE}','y_{DRE}')
+title('Saídas')
+xlabel('k')
+ylabel('y[k]')
+hold off
