@@ -22,12 +22,18 @@ D = 0;
 n = length(Phi);
 
 %Custo
-Q0 = eye(2);
-Q1 = eye(2);
-Q2 = 1;
+Q0 = [
+    1 0;
+    0 1
+    ];
+Q1 = [
+    1 0;
+    0 1
+    ];
+Q2 = 10;
 
 %Estado inicial
-x0= [0;10];
+x0= [0;1];
 
 %Referência
 R = 0;
@@ -40,4 +46,14 @@ F0 = zeros(1,n,1,N);
 
 %Nível ruido de medição
 rm_ARE = 0;
-rm_DRE = 0;
+seed_ARE = 41;
+
+rm_DRE = 1e-4;
+seed_DRE = 42;
+
+%Perturbação de entrada
+d_ARE = 0.06;
+d_ARE_gate = 1;
+
+d_DRE = 0.06;
+d_DRE_gate = 1;
