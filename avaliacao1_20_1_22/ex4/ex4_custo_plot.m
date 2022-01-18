@@ -50,5 +50,18 @@ hold on
 legend('u_{ARE}','u_{DRE}')
 title('Sinais de controle em tempo discreto')
 xlabel('k')
-ylabel('e[k]')
+ylabel('u[k]')
 hold off
+
+%Custos
+figure(5)
+plot(out.J_ARE,'o-')
+hold on
+plot(out.J_DRE,'o-')
+hold on
+legend('J_{ARE}','J_{DRE}')
+title('Custos em tempo discreto')
+xlabel('k')
+ylabel('J[k]')
+hold off
+
