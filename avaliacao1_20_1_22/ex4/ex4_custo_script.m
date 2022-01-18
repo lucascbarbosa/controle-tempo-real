@@ -7,8 +7,14 @@ h = 1;
 N = 20;
 
 %Modelo discreto do duplo integrador
-Phi = [1 h; 0 1];    
-Gamma = [h^2/2; h];
+Phi = [
+    1 h; 
+    0 1
+    ];    
+Gamma = [
+    h^2/2; 
+    h
+    ];
 C = [1 0];
 D = 0;
 
@@ -21,7 +27,7 @@ Q1 = eye(2);
 Q2 = 1;
 
 %Estado inicial
-x0= [1;1];
+x0= [0;10];
 
 %Referência
 R = 0;
@@ -33,4 +39,5 @@ R = 0;
 F0 = zeros(1,n,1,N);
 
 %Nível ruido de medição
-rm = 0;
+rm_ARE = 0;
+rm_DRE = 0;
