@@ -1,6 +1,0 @@
-function plot_x(data,tipo)
-    plot(data)
-    xlabel('t')
-    ylabel('x(t)')
-    legend('x_'
-end

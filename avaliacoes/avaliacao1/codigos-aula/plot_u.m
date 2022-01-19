@@ -7,6 +7,6 @@ function plot_u(u,u1,u2)
     xlabel('t')
     ylabel('u(t)')
     legend('u_c','u_v','u_{MPC}')
-    title("Sinais de controle de em tempo contínuo")
+    title("Control signal")
     saveas(gcf,'imgs/plot_u.png')
 end
