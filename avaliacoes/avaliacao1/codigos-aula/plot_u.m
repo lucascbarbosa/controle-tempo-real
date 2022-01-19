@@ -1,4 +1,5 @@
 function plot_u(u,u1,u2)
+    figure;
     plot(u)
     hold on
     plot(u1)
