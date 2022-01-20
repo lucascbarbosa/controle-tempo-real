@@ -53,9 +53,9 @@ Q12 = 0;
 observer_eig = 0.1*control_eig;
 
 %Pertubations
-measure_noise_gain = 0;
+measure_noise_gain = 1e-2;
 wind_initial_value = 0;
-wind_final_value = 0.0;
+wind_final_value = 0.2;
 wind_steptime = 0;
 
 %Input saturation

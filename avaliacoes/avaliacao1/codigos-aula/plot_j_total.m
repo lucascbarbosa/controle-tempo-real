@@ -3,6 +3,7 @@ figure;
 plot((out.j_real_total - out.j_ideal_total)/out.j_ideal_total, '-o');
 hold on;
 plot((out.j_real_total1 - out.j_ideal_total1)/out.j_ideal_total1, '-o');
+hold on;
 plot((out.j_real_total2 - out.j_ideal_total2)/out.j_ideal_total2, '-o');
 grid;
 xlabel('Time(seconds)');
