@@ -1,13 +1,13 @@
-function plot_y(y,y1,y2)
+function plot_y(out)
     figure;
-    plot(y)
+    plot(out.y)
     hold on
-    plot(y1)
+    plot(out.y1)
     hold on 
-    plot(y2)
+    plot(out.y2)
     xlabel('t')
     ylabel('u(t)')
-    legend('y_c','y_v','y_{MPC}')
+    legend('C', 'V', 'MPC');
     title("Response")
     saveas(gcf,'imgs/plot_y.png')
 end

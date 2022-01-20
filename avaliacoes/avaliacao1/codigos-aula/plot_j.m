@@ -10,5 +10,6 @@ ylabel('Cost');
 title('Instant cost comparison');
 legend('C', 'V', 'MPC');
 hold off;
+saveas(gcf,'imgs/plot_j.png')
 end
 

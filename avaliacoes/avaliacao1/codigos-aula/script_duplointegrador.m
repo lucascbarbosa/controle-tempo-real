@@ -1,4 +1,5 @@
-clear;
+clear all;
+close all;
 global N Phi Gamma Q1 Q2 Q0 Q12 h
 %Steps
 h = 1; %Sample step
@@ -52,9 +53,9 @@ Q12 = 0;
 observer_eig = 0.1*control_eig;
 
 %Pertubations
-measure_noise_gain = 3;
+measure_noise_gain = 0;
 wind_initial_value = 0;
-wind_final_value = 0.2;
+wind_final_value = 0.0;
 wind_steptime = 0;
 
 %Input saturation
@@ -82,14 +83,14 @@ rp = 0;
 %nivel ruido de medição
 rm = 0;
 
-out = sim('duplointegrador.slx', 'StartTime', '0', 'StopTime', '30');
+out = sim('duplointegrador.slx', 10);
 
 teste = 1;
 dirname = sprintf('teste_%i_imgs', teste);
 if not(isfolder(dirname))
     mkdir(dirname);
 end
-filepath = sprintf('%s\\parameters.txt', dirname)
+filepath = sprintf('%s\\parameters.txt', dirname);
 fileID = fopen(sprintf('%s\\parameters.txt', dirname),'w');
 fprintf(fileID, 'A = %.2f\n', A);
 fprintf(fileID, 'B = %.2f\n', B);
@@ -118,7 +119,8 @@ fprintf(fileID, 'wind_final_value = %.2f\n', wind_final_value);
 fprintf(fileID, 'wind_steptime = %.2f\n', wind_steptime);
 fclose(fileID);
 
+plot_u(out);
+plot_y(out);
 plot_j(out);
-saveas(gcf, sprintf('%s\\plot_j.png', dirname));
 plot_j_total(out);
-saveas(gcf, sprintf('%s\\plot_j_total.png', dirname));
+plot_x(out);

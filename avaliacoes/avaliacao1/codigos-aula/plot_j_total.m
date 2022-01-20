@@ -10,5 +10,6 @@ ylabel('Cost');
 title('Total cost comparison');
 legend('C', 'V', 'MPC');
 hold off;
+saveas(gcf,'imgs/plot_j_total.png')
 end
 

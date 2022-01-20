@@ -1,13 +1,13 @@
-function plot_u(u,u1,u2)
+function plot_u(out)
     figure;
-    plot(u)
+    plot(out.u)
     hold on
-    plot(u1)
+    plot(out.u1)
     hold on
-    plot(u2)
+    plot(out.u2)
     xlabel('t')
     ylabel('u(t)')
-    legend('u_c','u_v','u_{MPC}')
+    legend('C', 'V', 'MPC');
     title("Control signal")
     saveas(gcf,'imgs/plot_u.png')
 end

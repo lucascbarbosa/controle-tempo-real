@@ -1,10 +1,10 @@
-function plot_x(x,x1,x2)
+function plot_x(out)
     figure;
-    plot(x)
+    plot(out.x)
     hold on
-    plot(x1)
+    plot(out.x1)
     hold on
-    plot(x2)
+    plot(out.x2)
     xlabel('t')
     ylabel('x(t)')
     legend('x_{1_{c}}','x_{2_{c}}','x_{1_{v}}','x_{2_{v}}','x_{1_{MPC}}','x_{2_{MPC}}')
