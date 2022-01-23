@@ -8,6 +8,7 @@ function plot_x(out)
     xlabel('t')
     ylabel('x(t)')
     legend('x_{1_{c}}','x_{2_{c}}','x_{1_{v}}','x_{2_{v}}','x_{1_{MPC}}','x_{2_{MPC}}')
-    title("States")
+    title("States");
+    grid;
     saveas(gcf,'imgs/plot_x.png')
 end

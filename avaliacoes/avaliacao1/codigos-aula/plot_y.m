@@ -8,6 +8,7 @@ function plot_y(out)
     xlabel('t')
     ylabel('u(t)')
     legend('C', 'V', 'MPC');
-    title("Response")
+    title("Response");
+    grid;
     saveas(gcf,'imgs/plot_y.png')
 end

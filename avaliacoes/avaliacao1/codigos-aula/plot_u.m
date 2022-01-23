@@ -8,6 +8,7 @@ function plot_u(out)
     xlabel('t')
     ylabel('u(t)')
     legend('C', 'V', 'MPC');
-    title("Control signal")
+    title("Control signal");
+    grid;
     saveas(gcf,'imgs/plot_u.png')
 end
