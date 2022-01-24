@@ -14,7 +14,7 @@ D = [0];
 
 %Initial plant states
 x0 = zeros(2, 1);
-x0(1) = 0;
+x0(1) = 1;
 x0(2) = 0;
 
 %Initial observer states;
@@ -36,7 +36,7 @@ n = length(Phi);
 N = 40;
 
 %Referência
-reference=1;
+reference=0;
 
 %Custo
 Q1 = eye(n);
@@ -51,13 +51,12 @@ Q12 = 0;
 %Ganho
 [X,K,control_eig,info] = idare(Phi,Gamma,Q1,Q2,[],[]);
 observer_eig = [0.1 0.2];
-observer_gain = place(Phi', C_discrete', observer_eig);
 
 %Pertubations
-measure_noise_gain = 0;
+measure_noise_gain = 5e-7;
 wind_initial_value = 0;
-wind_final_value = 0;
-wind_steptime = 0;
+wind_final_value = 0.5;
+wind_steptime = 5;
 
 %Input saturation
 sat_min = -(10);
@@ -84,7 +83,7 @@ rp = 0;
 %nivel ruido de medição
 rm = 0;
 
-out = sim('duplointegrador.slx', 10);
+out = sim('duplointegrador.slx', 30);
 
 teste = 1;
 dirname = 'imgs';
